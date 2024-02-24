@@ -179,7 +179,7 @@ class Lf21215tmr_Device(FootprintBlock):
 >    - Pin 2: `vout`
 >    - Pin 3: `gnd`
 > 
-> ![KiCad tab](docs/ide/ide_kicad_magsense.png)
+> ![KiCad tab](../ide/ide_kicad_magsense.png)
  
 > <details>
 >   <summary>At this point, your HDL might look like...</summary>

@@ -112,7 +112,7 @@ The Python implementation of the compiler (backend) also lives here.
 
 #### Intermediate Representation
 The fundamental hierarchy blocks and links model is encoded as an [intermediate representation](https://en.wikipedia.org/wiki/Intermediate_representation) in [Protocol Buffer](https://developers.google.com/protocol-buffers), 
-The Protocol Buffers schema is in the [edgir](edgir) folder, and generated Protocol Buffers code (including Python type annotations) is committed to this repository.
+The Protocol Buffers schema is in the [edgir](../../edgir) folder, and generated Protocol Buffers code (including Python type annotations) is committed to this repository.
 The intent behind this is to allow cross-language interoperability (eg, solver implemented in another, more efficient, language) and to define a compiled object format.
 
 You can ignore this section, unless you are changing the Protocol Buffer structure.

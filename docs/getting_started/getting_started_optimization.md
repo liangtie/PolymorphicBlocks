@@ -43,13 +43,13 @@ class BlinkyExample(SimpleBoardTop):
 
 If you import this into KiCad, you should be able to see the quad-pack resistor instead of single resistors per LED.
 Here, it is shown on the bottom left, next to the switch:  
-![Packed layout with default placement](docs/packed_kicad.png)
+![Packed layout with default placement](../packed_kicad.png)
 
 
 ## Definition
 
 Creation of multipack devices is current out of the scope of this tutorial series.
 However, you can see some examples:
-- [Resistor array](electronics_abstract_parts/AbstractResistorArray.py): how the resistor array used above is implemented, though this is a base class intended to be subclassed by a parts table parser.
-- [RGB LED](electronics_abstract_parts/AbstractLed.py): an RGB LED packed from individual discrete LED, that also show how shared pins can be handled.
+- [Resistor array](../../electronics_abstract_parts/AbstractResistorArray.py): how the resistor array used above is implemented, though this is a base class intended to be subclassed by a parts table parser.
+- [RGB LED](../../electronics_abstract_parts/AbstractLed.py): an RGB LED packed from individual discrete LED, that also show how shared pins can be handled.
   This is also an example of a `PackedBlock` that uses single instance parts, the component R, G, and B LEDs.

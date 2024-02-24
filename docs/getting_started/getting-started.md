@@ -4,16 +4,16 @@
 The core abstraction is the hierarchical block diagram, which we will explain using an example design of a microcontroller driving an LED.
 
 In conventional schematic tools, such a design could be a flat schematic, consisting of the microcontroller module, LED, and resistor:  
-![Blinky Hierarchy Block Diagram](docs/blinky_model_flat.png)
+![Blinky Hierarchy Block Diagram](../blinky_model_flat.png)
 
 Many modern tools have the concept of hierarchy blocks, where a block could be a subcircuit:  
-![Blinky Hierarchy Block Diagram](docs/blinky_model_hierarchy1.png)
+![Blinky Hierarchy Block Diagram](../blinky_model_hierarchy1.png)
 
 In the example above, the LED-resistor subcircuit is contained within a block, which can be manipulated as a unit, and exposes ports (circles on the diagram) while encapsulating internal pins.
 (note: in mainstream schematic tools with this feature, the subcircuit is usually presented in its own sheet, instead of having its contents displayed in the block)
 
 Generalizing this model, components are blocks too, and component pins are also block ports:  
-![Blinky Hierarchy Block Diagram](docs/blinky_model_hierarchy2.png)
+![Blinky Hierarchy Block Diagram](../blinky_model_hierarchy2.png)
 
 The main concepts our model extends on top of the simple hierarchy blocks above are **parameters**, **links**, and **generators**.
 
@@ -27,7 +27,7 @@ For example, the `IndicatorLed` block automatically sizes the resistor based on 
 Finally, in the internal model (mainly relevant for compiler writers and library builders), the connections between ports expand into **links** which defines how parameters propagate between those ports and any constraints on them.
 Continuing the digital IO example, the link would check the output thresholds against the input thresholds, and provide the worst-case voltage levels given all connected drivers.
 These could be viewed as a block-like object (diamonds on the diagram) instead of direct wire connections:  
-![Blinky Hierarchy Block Diagram](docs/blinky_model_full.png)
+![Blinky Hierarchy Block Diagram](../blinky_model_full.png)
 
 > In the user-facing HDL design model, links are inferred based on the types of connected ports and not explicit.
 > Being aware of links can be useful for debugging, but this is mainly relevant for compiler writers and library builders.
@@ -68,7 +68,7 @@ To help with these more basic operations and to support those more familiar with
 - allows inspection of solved / computed parameters in the design
 - generates and inserts HDL code from schematic editor-like actions
 
-![Annotated IDE screen](docs/ide/overview.png)
+![Annotated IDE screen](../ide/overview.png)
 
 The IDE has these major components:
 - **Block Diagram Visualization**: shows the compiled design visualized as a block diagram here.
@@ -117,12 +117,12 @@ if __name__ == "__main__":
 
 Try building the example now.
 
-**If using the IDE**: look for the run icon ![run icon](docs/ide/ide_run_button.png) in the gutter (with the line numbers) next to `class BlinkyExample`:
-![run in IDE](docs/ide/ide_gutter_run.png)  
+**If using the IDE**: look for the run icon ![run icon](../ide/ide_run_button.png) in the gutter (with the line numbers) next to `class BlinkyExample`:
+![run in IDE](../ide/ide_gutter_run.png)  
 1. Click it.
    _Make sure that you're using the run icon associated with `class BlinkyExample`, not the file, and not `if __name__ == "__main__"`._
 2. Then from the menu, click the Run option.  
-   ![run menu](docs/ide/ide_run_blinky_menu.png)
+   ![run menu](../ide/ide_run_blinky_menu.png)
    > **Tip**: Next time, you can rebuild the design by re-running the last selected run configuration with hotkey **Shift+F10** (Windows) or **Ctrl+R** (MacOS).
 
    > **Note on re-compiling behavior**: The IDE only re-compiles block classes when its source (or the source of superclasses) has changed, but this does not catch all functional changes.
@@ -141,7 +141,7 @@ Try building the example now.
    Completed: generate netlist: wrote [...]
    ```
 4. Some options (like where the netlist is generated into) can be modified via the run options at the top right:  
-   ![run menu](docs/ide/ide_run_config.png)
+   ![run menu](../ide/ide_run_config.png)
 <details> <summary>If not using the IDE</summary>
   
 Run `python blinky.py` from the command line.
@@ -160,14 +160,14 @@ For this simple example, we connect an LED to a STM32F103 microcontroller, and h
 
 Let's start by instantiating the USB type-C receptacle through graphical operations in the IDE.
 1. In the Library Browser, search for the block (here, `UsbCReceptable`) using the Filter textbox:  
-   ![Library filtering by USB](docs/ide/ide_library_usbc.png)
+   ![Library filtering by USB](../ide/ide_library_usbc.png)
 2. Double-click the library entry.
    This will insert the code to instantiate the block as a _live template_, code with template fields you can fill in:  
-   ![Live template example](docs/ide/ide_livetemplate_usbc.png)  
+   ![Live template example](../ide/ide_livetemplate_usbc.png)  
    **Editing outside the currently active template field (boxed in blue) will break off and cancel the template.**
    **Moving the cursor outside the currently active template field, either using the mouse or keyboard arrows, is discouraged.**
 3. Name the block `usb`, by typing it into the first template field.  
-   ![Live template example](docs/ide/ide_livetemplate_usbc_named.png)
+   ![Live template example](../ide/ide_livetemplate_usbc_named.png)
 4. Then press [Tab] through the end of the template (leaving the other fields empty, they're optional).
 5. Once you commit the live template, the block will appear in the block diagram visualizer.
     - The hatched pattern (diagonal lines) in the block diagram visualizer indicates that the block may be out-of-sync with the code until the next re-compile.
@@ -186,8 +186,8 @@ Let's start by instantiating the USB type-C receptacle through graphical operati
 > It must be assigned to an instance variable (in this case, `mcu`), which is used as the name sub-block.
 
 > The library icons have these meanings:
-> - ![Folder](docs/intellij_icons/AllIcons.Nodes.Folder.svg) (category): this "block" is actually a category organizer and should not be instantiated.
-> - ![Abstract Type](docs/intellij_icons/AllIcons.Hierarchy.Subtypes.dark.svg) (abstract type): this block is an abstract type.
+> - ![Folder](../intellij_icons/AllIcons.Nodes.Folder.svg) (category): this "block" is actually a category organizer and should not be instantiated.
+> - ![Abstract Type](../intellij_icons/AllIcons.Hierarchy.Subtypes.dark.svg) (abstract type): this block is an abstract type.
 >   Abstract blocks will be discussed more later.
 > - Most will not have an icon, which means that they're none of the above. These blocks can be instantiated.
 
@@ -203,7 +203,7 @@ If all was done correctly, your changes to the skeleton code might look like:
 ```
 
 If you're using the IDE, once you recompile the block diagram should look like:  
-![Blink diagram with blocks only](docs/ide/ide_blinky_blocks.png)  
+![Blink diagram with blocks only](../ide/ide_blinky_blocks.png)  
 With something on your screen now, you can zoom in and out of the visualization using the mousewheel, or pan by clicking and dragging.
 
 As the design is incomplete, **it is expected that there will be errors**.
@@ -215,12 +215,12 @@ Blocks alone aren't very interesting, and they must be connected to be useful.
 First, we need to connect the power and ground between the devices, which we can also do with graphical operations in the IDE:
 1. Double click any of the ground ports (say, `usb.gnd`).
    This starts a connection operation, which dims out the ports that cannot be connected:  
-   ![Connection beginning](docs/ide/ide_connect_usbc_start.png)
+   ![Connection beginning](../ide/ide_connect_usbc_start.png)
 2. Select (single click) on all the other ground ports to be connected (here, `mcu.gnd` and `led.gnd`):  
-   ![Connection with ports](docs/ide/ide_connect_usbc_all.png)
+   ![Connection with ports](../ide/ide_connect_usbc_all.png)
     - The order in which you select additional ports determines the order of the ports in the generated code.
 3. Double-click anywhere (within a block) to insert the connections as a live template.
-   ![Connection live template](docs/ide/ide_livetemplate_gnd_connect.png)
+   ![Connection live template](../ide/ide_livetemplate_gnd_connect.png)
    > - You can double-click on a port to simultaneously select that port and insert the connection.
    > - You can cancel a connect operation by pressing [Esc] while the block diagram visualizer is selected.
 4. The name template field is optional, leave it blank and [Tab] past it.
@@ -245,7 +245,7 @@ If all was done correctly, your changes to the skeleton code might look like:
 > Connections are strongly typed based on the port types: the system will try to infer a _link_ based on the argument port types and count.
 
 If you're using the IDE, once you recompile the block diagram should look like:  
-![Block diagrams with power connections](docs/ide/ide_blinky_connectpower.png)
+![Block diagrams with power connections](../ide/ide_blinky_connectpower.png)
 
 Then, we need to connect the LED to a GPIO on the microcontroller, so **repeat the connect process** (connect `mcu.gpio` to `led.signal`).
 
@@ -262,8 +262,8 @@ Give the GPIO pin an (optional) name `led` by modifying the generated code:
 + self.connect(self.mcu.gpio.request('led'), self.led.signal)
 ```
 
-> Microcontroller GPIOs (and other IOs like SPI and UART) are ![port array symbol](docs/ide/ide_portarray.png) _port arrays_, which are dynamically sized.
-> Here, we ![port array symbol](docs/ide/ide_portarray_slice_min.png) `request(...)` a new GPIO from the GPIO port array, then connect it to the LED.
+> Microcontroller GPIOs (and other IOs like SPI and UART) are ![port array symbol](../ide/ide_portarray.png) _port arrays_, which are dynamically sized.
+> Here, we ![port array symbol](../ide/ide_portarray_slice_min.png) `request(...)` a new GPIO from the GPIO port array, then connect it to the LED.
 > `request(...)` takes an optional name parameter, the meaning of which depends on the block.
 >
 > By default, these connections are arbitrarily assigned to microcontroller pins.
@@ -275,7 +275,7 @@ Give the GPIO pin an (optional) name `led` by modifying the generated code:
 > Internal usage of port arrays will be covered later in the library building section.
 
 Recompiling in the IDE yields this block diagram:  
-![Fully connected block diagram](docs/ide/ide_blinky_connect.png)
+![Fully connected block diagram](../ide/ide_blinky_connect.png)
 
 > <details>
 >   <summary>At this point, your HDL might look like...</summary>
@@ -301,9 +301,9 @@ While the design is now structurally complete, we still have errors in the form 
 Assertions are checks on the electronics model, in this case it's detecting a voltage incompatibility between the USB's 5v out and the STM32's 3.3v tolerant power inputs.
 
 If you're in the IDE, errors will show up in the compilation log and in the errors tab:  
-![Errors tab with errors](docs/ide/ide_blinky_errors.png)  
+![Errors tab with errors](../ide/ide_blinky_errors.png)  
 You can also inspect the details of the power connection by mousing over it:  
-![Inspection of the power lines with voltages and limits](docs/ide/ide_blinky_inspect.png)
+![Inspection of the power lines with voltages and limits](../ide/ide_blinky_inspect.png)
 
 ### Adding a Voltage Regulator
 To run the STM32 within its rated voltage limits, we'll need a voltage regulator to lower the 5v from USB to the common 3.3v power expected by modern devices.
@@ -312,7 +312,7 @@ To run the STM32 within its rated voltage limits, we'll need a voltage regulator
 Unlike the prior blocks, we actually need to specify a target output voltage here: use `3.3*Volt(tol=0.05)` for 3.3V ± 5%.
 If using live templates, you can write it into the `output_voltage` template field.
 **Place this between the USB connector and the microcontroller** (you can use Alt+click to move the template position, while it's active).  
-![Regulator live template](docs/ide/ide_livetemplate_reg.png)
+![Regulator live template](../ide/ide_livetemplate_reg.png)
 
 > The `VoltageRegulator` block is parameterized - configured by additional data specified as constructor arguments.
 >
@@ -322,7 +322,7 @@ If using live templates, you can write it into the `output_voltage` template fie
 **Repeat the connect flow** to connect `reg.gnd` to the existing ground net.
 If using graphical operations, you can start by double-clicking on any port you want to connect.
 **Try merging the new connect into the prior ground connect statement by re-positioning (Alt+click) the template into the prior ground connect**.  
-![Connection live template](docs/ide/ide_livetemplate_gnd_append.png)
+![Connection live template](../ide/ide_livetemplate_gnd_append.png)
 
 You'll also need to splice the regulator into the power connection between the USB and the microcontroller.
 Since graphical operations don't support connection delete, you'll have to **delete the power connection in the code, then recompile**:
@@ -387,7 +387,7 @@ We can _refine_ those abstract blocks to give them a _concrete_ subclass by **ad
 > 4. The corresponding refinement block should be inserted, or if it already exists, a new refinement entry will be added.
 
 Recompiling in the IDE yields this block diagram and no errors:  
-![Blinky with buck converter block diagram](docs/ide/ide_blinky_buck.png)
+![Blinky with buck converter block diagram](../ide/ide_blinky_buck.png)
 
 > <details>
 >   <summary>At this point, your HDL might look like...</summary>
@@ -422,11 +422,11 @@ You may want to inspect the results.
 In the IDE, you can hover over the output line and see that it is at 3.3v ±4.47%.
 Why?
 You can dig into the converter subcircuit by double-clicking on it:  
-![TPS561201 subcircuit](docs/ide/ide_buck_internal.png)
+![TPS561201 subcircuit](../ide/ide_buck_internal.png)
 
 The implementation uses a feedback voltage divider, and if you mouseover this it will show the generated ratio of 0.23.
 The converter's output voltage reflects the actual expected output voltage, accounting for resistor tolerance and the chip's feedback reference tolerance.  
-![Buck converter input capacitor](docs/ide/ide_buck_fb.png)
+![Buck converter input capacitor](../ide/ide_buck_fb.png)
 
 Similarly, mousing over the other components like the resistors and capacitors shows their details.
 
@@ -437,7 +437,7 @@ If you have KiCad installed, you can import this full design into the layout edi
 
 In the KiCad PCB Editor (layout tool), go to File > Import > Netlist..., and open the netlist file generated.
 KiCad will produce an initial placement that roughly clusters components according to their hierarchical grouping:
-![Blinky layout with default placement](docs/blinky_kicad.png)
+![Blinky layout with default placement](../blinky_kicad.png)
 
 The block hierarchy will appear to KiCad as a sheet hierarchy.
 You can, for example, right click one of the footprints > Select > Items in Same Hierarchical Sheet, and it will select all footprints in that sub-block.
@@ -487,7 +487,7 @@ While you certainly can copy-paste the above LED instantiation 4 times, that's n
 > However, the visualizer will run fine.
 
 Recompiling in the IDE yields this block diagram:  
-![Blinky with switch and LED array block diagram](docs/ide/ide_ledarray.png)
+![Blinky with switch and LED array block diagram](../ide/ide_ledarray.png)
 
 > <details>
 >   <summary>At this point, your HDL might look like...</summary>
@@ -664,7 +664,7 @@ Only one pin per block may be tagged with `Input`, `Output`, and `InOut`.
 The tuple of blocks can be used to name inline blocks declared in the chain (which is done in the blinky example to name the LED and switch), and the chain object can be used to name the links.
 
 > As a more complicated example, running `self.chain(Port1, Block1, Block2, Block3, Block4)` (with the block definitions written as are shown below) would produce this block diagram:  
-> ![Chain Connects Example](docs/chain.png)  
+> ![Chain Connects Example](../chain.png)  
 > The chain starts at Port1.
 > Block1 and Block2 have both an Input and Output port, so the chain goes "through" those blocks.
 > Block3 has an InOut port, so it is attached to the previous connection, but the chain goes not go "through" it.
@@ -815,7 +815,7 @@ Continue to [the next part of the tutorial](getting_started_library.md) on defin
 
 ### Additional Resources
 If you want to some more complex examples of boards designed in this HDL, check out:
-- [LED Matrix](examples/test_ledmatrix.py): a charlieplexed LED matrix.
+- [LED Matrix](../../examples/test_ledmatrix.py): a charlieplexed LED matrix.
   Ignore the implementation of the charlieplexing LED matrix library block for now, just look at the top-leve design.
-- [Simon Game](examples/test_simon.py): an implementation of the Simon electronic game, that uses 12v dome buttons and includes the needed power conversion circuitry.
-- [CANdapter](examples/test_can_adapter.py): an USB to isolated CAN adapter, with a bunch of onboard LEDs and an LCD display.
+- [Simon Game](../../examples/test_simon.py): an implementation of the Simon electronic game, that uses 12v dome buttons and includes the needed power conversion circuitry.
+- [CANdapter](../../examples/test_can_adapter.py): an USB to isolated CAN adapter, with a bunch of onboard LEDs and an LCD display.

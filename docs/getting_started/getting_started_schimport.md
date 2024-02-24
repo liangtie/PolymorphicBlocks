@@ -20,7 +20,7 @@ Parts where there isn't a corresponding library block can instead be defined wit
 Hierarchical labels are used to define the block's boundary ports (electrical interface).
 
 Our finished schematic looks like this and is available in [examples/resources/Hx711.sch](examples/resources/Hx711.sch):  
-![HX711 schematic](docs/greybox_hx711.svg)
+![HX711 schematic](../greybox_hx711.svg)
 
 A few notes here:
 - Labels like GND and VCC work as expected within this block.
@@ -242,7 +242,7 @@ Continue to [the next part of the tutorial](getting_started_library.md) on defin
 
 ### Additional Resources
 If you want to see some more complex examples of schematic-defined Blocks, check out:
-- The FET power gate [schematic](examples/resources/FetPowerGate.kicad_sch) and [FetPowerGate stub class](examples/test_multimeter.py), a power button that turns on a FET which can then be latched on by a microcontroller.
-- The priority power OR [schematic](electronics_lib/resources/PriorityPowerOr.kicad_sch) and [PriorityPowerOr stub class](electronics_lib/PowerConditioning.py), a diode-FET circuit that merges two voltage sources with priority.
-- The source measure unit analog chain [schematic](examples/resources/SourceMeasureControl.kicad_sch) and [SourceMeasureControl stub class](examples/test_usb_source_measure.py), a higher-level schematic that makes use of the opamp building blocks.
-- The differential amplifier [schematic](electronics_abstract_parts/resources/DifferentialAmplifier.kicad_sch) and [DifferentialAmplifier stub class](electronics_abstract_parts/OpampCircuits.py), a standard opamp circuit that mixes schematic definition for the connectivity and generator code to compute resistor values.
+- The FET power gate [schematic](../../examples/resources/FetPowerGate.kicad_sch) and [FetPowerGate stub class](../../examples/test_multimeter.py), a power button that turns on a FET which can then be latched on by a microcontroller.
+- The priority power OR [schematic](../../electronics_lib/resources/PriorityPowerOr.kicad_sch) and [PriorityPowerOr stub class](../../electronics_lib/PowerConditioning.py), a diode-FET circuit that merges two voltage sources with priority.
+- The source measure unit analog chain [schematic](../../examples/resources/SourceMeasureControl.kicad_sch) and [SourceMeasureControl stub class](../../examples/test_usb_source_measure.py), a higher-level schematic that makes use of the opamp building blocks.
+- The differential amplifier [schematic](../../electronics_abstract_parts/resources/DifferentialAmplifier.kicad_sch) and [DifferentialAmplifier stub class](../../electronics_abstract_parts/OpampCircuits.py), a standard opamp circuit that mixes schematic definition for the connectivity and generator code to compute resistor values.

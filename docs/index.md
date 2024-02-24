@@ -13,13 +13,13 @@ See [Project Status](#project-status) for more details.
 
 
 ## Getting Started
-See the [setup documentation](docs/getting_started/setup.md), then work through the [getting started tutorial](docs/getting_started/getting-started.md).
+See the [setup documentation](setup.md), then work through the [getting started tutorial](getting-started.md).
 
-**Setup tl;dr**: install the Python package from pip: `pip install edg`, and optionally run the [IDE plugin with block diiagram visualizer](docs/getting_started/setup.md#ide-setup).
+**Setup tl;dr**: install the Python package from pip: `pip install edg`, and optionally run the [IDE plugin with block diiagram visualizer](setup.md#ide-setup).
 
 
 ## Example
-From [the getting started tutorial](docs/getting_started/getting-started.md), this code defines a board with a USB Type-C connector powering (through a buck converter for 3.3V step-down) a microcontroller which drives a LED and reads a switch.
+From [the getting started tutorial](getting-started.md), this code defines a board with a USB Type-C connector powering (through a buck converter for 3.3V step-down) a microcontroller which drives a LED and reads a switch.
 
 ```python
 self.usb = self.Block(UsbCReceptacle())
@@ -90,7 +90,7 @@ However, there are cross-cutting concerns (eg, layout-aware pin assignment, HDL-
 
 ### Examples
 Example boards, including layouts, are available in the [examples/](examples/) directory, structured as unit tests and including board layouts:
-- [Blinky](examples/test_blinky.py): all variations of blinky from [the getting started tutorial](docs/getting_started/getting-started.md).
+- [Blinky](examples/test_blinky.py): all variations of blinky from [the getting started tutorial](getting-started.md).
 - [LED Matrix](examples/test_ledmatrix.py): a 6x5 LED matrix display made up of discrete [charlieplexed](https://en.wikipedia.org/wiki/Charlieplexing) LEDs with a ESP32-C3 WiFi + RISC-V microcontroller, and demonstrating a charlieplexing array generator and packed resistors.
 - [Simon](examples/test_simon.py): a [Simon memory game](https://en.wikipedia.org/wiki/Simon_(game)) implementation with a speaker and [12v illuminated dome buttons](https://www.sparkfun.com/products/9181).
 - [CANdapter](examples/test_can_adapter.py): an isolated [CANbus](https://en.wikipedia.org/wiki/CAN_bus) to USB (type-C, USB-FS) adapter.
@@ -99,7 +99,7 @@ Example boards, including layouts, are available in the [examples/](examples/) d
 - [USB Source-Measure Unit](examples/test_usb_source_measure.py): a USB PD (type-C power delivery) source-measure unit -- which can both act as a DC power supply with configurable voltage and current, and as a DC load. More precisely, it's a digitally-controlled 2-quadrant (positive voltage, positive or negative current) power source.  
 
 ### Developing
-See [developing.md](docs/getting_started/developing.md) for developer documentation.
+See [developing.md](developing.md) for developer documentation.
 
 ### Misc
 - **_What is EDG?_**:

@@ -280,5 +280,5 @@ Continue to [the next part of the tutorial](getting_started_optimization.md) on 
 
 ### Additional Resources
 Check out these examples of generators:
-- [Charlieplexing LED generator](examples/test_ledmatrix.py): a much more advanced version of the LED array that minimizes IO pins to drive LEDs, by allowing one IO pin to drive both a column and row of LEDs.
-- [Buck and boost converter generators](electronics_abstract_parts/AbstractPowerConverters.py): the power path generator for these switching DC/DC converters encode well-known design equations using generators.
+- [Charlieplexing LED generator](../../examples/test_ledmatrix.py): a much more advanced version of the LED array that minimizes IO pins to drive LEDs, by allowing one IO pin to drive both a column and row of LEDs.
+- [Buck and boost converter generators](../../electronics_abstract_parts/AbstractPowerConverters.py): the power path generator for these switching DC/DC converters encode well-known design equations using generators.
