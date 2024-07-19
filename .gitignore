@@ -38,3 +38,4 @@ dmypy.json
 *.csv
 *.kicad_sch.lck
 *.kicad_pcb.lck
+.venv
