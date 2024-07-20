@@ -11,6 +11,7 @@ BlinkyExample/
 
 *.raw
 *.plt
+.vscode
 
 # IDEs
 .project
