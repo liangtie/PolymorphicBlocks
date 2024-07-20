@@ -8,10 +8,12 @@ examples/*/*.edg
 examples/*/*.pdf
 /*.net
 BlinkyExample/
-
+.bloop
+project
 *.raw
 *.plt
 .vscode
+.metals
 
 # IDEs
 .project
