@@ -9,6 +9,8 @@ examples/*/*.pdf
 /*.net
 BlinkyExample/
 .bloop
+*.exe
+cache
 project
 *.raw
 *.plt
